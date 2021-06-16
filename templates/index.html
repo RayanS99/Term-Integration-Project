@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container theme-showcase" role="main" style="margin-top: 75px">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        {% if current_user.is_authenticated %}
+        <h1>Hello there, you have successfully logged in!</h1>
+        <br>
+        <h3>Welcome to Iberia's IT dashboard. Kindly navigate through the KPI dropdown menu to have a look at the past months' performance!</h3>
+        {% else%}
+        <h1>Hello, please login <a href="{{ url_for('login') }}">here</a>!</h1> 
+        <h1>If you still didn't register, do it <a href="{{ url_for('register') }}">here</a>!</h1> 
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

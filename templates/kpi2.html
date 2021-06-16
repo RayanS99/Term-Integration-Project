@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Solved incidences{% endblock %}
+
+{% block content %}
+
+<header class="bg-transparent text-grey">
+    <div class="container">
+    <h1>Number of solved incidences per month</h1>
+        <div class="d-flex align-items-center justify-content-center", role="main">          
+            <iframe src="/dash/kpi2" frameborder="0" width=700rem height=600rem id="my-iframe"></iframe>
+        </div> 
+    </div>
+</header>
+
+{% endblock %}

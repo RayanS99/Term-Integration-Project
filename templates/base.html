@@ -1,0 +1,100 @@
+
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}{{title|default}}{% endblock title %}</title>
+  {%- block metas %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="Tip" content="home-page">
+  <meta name="Chris" content="">
+ 
+  <title>Tip</title>
+  {%- endblock metas %}
+ 
+  {%- block styles %}
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{url_for('static', filename='/css/main.css')}}" rel="stylesheet">
+  {%- endblock styles %}
+  {%- endblock head %}
+</head>
+ 
+<body id="page-top" {% block body_attribs %}{% endblock body_attribs %}>
+  {% block body -%}
+  {% block navbar %}
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container text-grey">
+      <a class="navbar-brand" style="color:#2b2b2b" href="{{ url_for('index') }}">
+        <img src="{{url_for('static', filename='/img/logo.png')}}" width="200" height=""> 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          {% if current_user.is_authenticated %}
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+          </li>
+          {% endif %}
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+          </li>
+          {% endif %}
+          {% if current_user.is_authenticated %}
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+          </li>
+          {% endif %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              KPIs
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{{ url_for('dashboard1') }}">Raised incidences</a>
+              <a class="dropdown-item" href="{{ url_for('dashboard2') }}">Solved incidences</a>
+              <a class="dropdown-item" href="{{ url_for('dashboard4') }}">Unsolved backlog</a>
+              <a class="dropdown-item" href="{{ url_for('dashboard3') }}">SLA</a>
+              <a class="dropdown-item" href="{{ url_for('dashboard5') }}">Services unavailability</a>             
+              <a class="dropdown-item" href="{{ url_for('dashboard6') }}">Monthly availability</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  {%- endblock navbar %}
+  {% block content -%}
+  {%- endblock content %}
+ 
+  <!-- Footer -->
+  <footer class="fixed-bottom py-5 light bg-light footer-expand-lg">
+    <div class="container justify-content-lef">
+      <p class="m-0 text-grey text-center">Copyright &copy; Rayan M 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  {% block scripts %}
+  <!-- Bootstrap core JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  {%- endblock scripts %}
+  {%- endblock body %}
+</body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}
+
+ 

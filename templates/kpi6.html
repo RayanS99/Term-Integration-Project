@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Total monthly availability{% endblock %}
+
+{% block content %}
+
+<style>     
+    .frame{
+        display:inline-block;
+    }
+
+</style>
+
+<header class="d-flex align-items-center justify-content-center" role="main">
+    <div class="container">
+        <h1> Average availability </h1>
+        <div class="frame">
+            <iframe src='/dash/kpi6/a/' frameborder="0" width=350rem height=490rem id="my-iframe" ></iframe> 
+        </div>
+        <div class="frame">
+            <iframe name="February 2018" src='/dash/kpi6/b/' frameborder="0" width=350rem height=490rem id="my-iframe" ></iframe> 
+        </div>
+
+        <div class="frame">
+            <iframe src='/dash/kpi6/c/' frameborder="0" width=350rem height=490rem id="my-iframe" ></iframe> 
+        </div>
+    </div>
+</header>
+
+{% endblock %}

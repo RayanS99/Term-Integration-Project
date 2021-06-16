@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Incidences and SLA{% endblock %}
+
+{% block content %}
+
+<header class="bg-transparent text-grey">
+    <div class="container">
+    <h1>Number of incidences that meet and breach the SLA</h1>
+        <div class="d-flex align-items-center justify-content-center" role="main">          
+            <iframe src="/dash/kpi3" frameborder="0" width=700rem height=600rem id="my-iframe"></iframe>
+        </div> 
+    </div>
+</header>
+
+{% endblock %}
+
